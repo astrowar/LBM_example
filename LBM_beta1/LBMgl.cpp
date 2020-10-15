@@ -173,7 +173,7 @@ void showGraphics( int WIDTH, int HEIGHT, real xmin, real xmax, real ymin, real 
 
 // populate D3Q19 parameters and copy them to __constant__ memory on the GPU
 
-void   D3Q9(real* ex, real* ey, int* oppos, real* wt)
+void   D2Q9(real* ex, real* ey, int* oppos, real* wt)
 {
     // D2Q9 model base velocities and weights
 

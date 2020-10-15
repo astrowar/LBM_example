@@ -6,11 +6,16 @@
 #include "config.h"
 #include "LBM.h"
 
+#include "..\LBM_gpu\LBM_gpu.h"
+
 int  main( int argc, char* argv[] )
 {
     //--------------------------------
     //   Create a WINDOW using GLFW
     //--------------------------------
+
+    LBM_initializeCudaDevice();
+    LBM_setup( 256 );
 
     GLFWwindow* window;
 
@@ -55,7 +60,7 @@ int  main( int argc, char* argv[] )
     real* wt = new real[Qcc];
 
     // fill D3Q9 parameters in constant memory on the GPU
-    D3Q9( ex, ey, oppos, wt );
+    D2Q9( ex, ey, oppos, wt );
 
     // launch GPU kernel to initialize all fields
     initialize( N, Qcc, DENSITY, LID_VELOCITY, ex, ey, oppos, wt, rho, ux, uy, sigma, f, feq, f_new );

@@ -5,7 +5,7 @@
 void showGraphics( int WIDTH, int HEIGHT, real xmin, real xmax, real ymin, real ymax, const real* ux, const real* uy );
 
 
-void   D3Q9( real* ex, real* ey, int* oppos, real* wt );
+void   D2Q9( real* ex, real* ey, int* oppos, real* wt );
 
 void initialize( const int N, const int Q, const real DENSITY, const real LID_VELOCITY,
     real* ex, real* ey, int* oppos, real* wt,
